@@ -1,0 +1,18 @@
+{
+    "name": "anwar/smaregi",
+    "description": "Smaregi app api implementation for laravel",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Anwar\\Smaregi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anwar Jahid",
+            "email": "ajr.jahid@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
