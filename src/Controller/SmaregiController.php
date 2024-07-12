@@ -4,7 +4,6 @@ namespace Anwar\Smaregi\Controller;
 
 use Anwar\Smaregi\SmaregiConnection;
 use App\Http\Controllers\Controller;
-use Spatie\FlareClient\Http\Exceptions\BadResponse;
 
 class SmaregiController extends Controller
 {
@@ -14,9 +13,6 @@ class SmaregiController extends Controller
         $this->connection = $connection;
     }
 
-    /**
-     * @throws BadResponse
-     */
     public function checkConnection(){
         return $this->connection->get('pos/categories', [
             'categoryName' => "Test categoryName by pos developer2"
