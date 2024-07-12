@@ -1,18 +1,38 @@
 {
     "name": "anwar/smaregi",
-    "description": "Smaregi app api implementation for laravel",
     "type": "library",
-    "autoload": {
-        "psr-4": {
-            "Anwar\\Smaregi\\": "src/"
-        }
-    },
+    "license": "MIT",
+    "description": "Smaregi app api implementation for laravel",
+    "keywords": [
+        "anwar",
+        "laravel",
+        "smaregi"
+    ],
     "authors": [
         {
             "name": "Anwar Jahid",
             "email": "ajr.jahid@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Anwar\\Smaregi\\": "src/"
+        }
+    },
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.0",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Anwar\\Smaregi\\SmaregiProvider"
+            ]
+        }
+    }
 }
