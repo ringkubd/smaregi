@@ -115,8 +115,8 @@ class SmaregiConnection implements Connection
         }
     }
 
-    public function patch(string $path, array $body = []){
-        $path = $this->config->get('smaregi.contract_id')."/".$path;
+    public function patch(string $path, int $id, array $body = []){
+        $path = $this->config->get('smaregi.contract_id')."/".rtrim($path, '/')."/".$id;
         try {
             $res = $this->httpClient->patchAsync($path, [
                 'json' => $body
@@ -129,12 +129,10 @@ class SmaregiConnection implements Connection
         }
     }
 
-    public function delete(string $path, array $body = []){
-        $path = $this->config->get('smaregi.contract_id')."/".$path;
+    public function delete(string $path, int $id){
+        $path = $this->config->get('smaregi.contract_id')."/".rtrim($path, '/')."/".$id;
         try {
-            $res = $this->httpClient->deleteAsync($path, [
-                'json' => $body
-            ])->wait();
+            $res = $this->httpClient->deleteAsync($path)->wait();
             if ($res->getStatusCode() == 200){
                 return $res->getBody()->getContents();
             }

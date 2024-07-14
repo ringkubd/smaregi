@@ -13,6 +13,7 @@ SMAREGI_BASE_URL_FOR_TOKEN=
 SMAREGI_BASE_URL=
 ````
 ## Example
+
 ```PHP
 <?php
 
@@ -25,13 +26,47 @@ class SmaregiController extends Controller
 {
     protected SmaregiConnection $connection;
 
+    /**
+     * @param SmaregiConnection $connection
+     */
     public function __construct(SmaregiConnection $connection){
         $this->connection = $connection;
     }
-    
-    public function checkConnection(){
-        return $this->connection->get('pos/products');
+
+    /**
+     * GET Method example
+     */
+
+    public function getCategories(){
+        return $this->connection->get('pos/categories', [
+            'categoryName' => "Test categoryName by pos developer2"
+        ]);
+    }
+    /**
+     * POST method Example
+     */
+    public function storeCategories(){
+        return $this->connection->post('pos/categories', [
+            "categoryName" => "Test Category"
+        ]);
+    }
+
+    /**
+     * DELETE method Example
+     */
+    public function deleteCategory($id){
+        return $this->connection->delete('pos/categories', $id);
+    }
+
+    /**
+     * PATCH method Example
+     */
+    public function updateCategory($id){
+        return $this->connection->patch('pos/categories', $id, [
+            "categoryName" => "Test Category Updated"
+        ]);
     }
 }
+
 
 ```

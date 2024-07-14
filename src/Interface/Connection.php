@@ -9,8 +9,8 @@ interface Connection
 
     public function post(string $path, array $body = []);
 
-    public function patch(string $path, array $body = []);
+    public function patch(string $path, int $id, array $body = []);
     public function put(string $path, array $body = []);
 
-    public function delete(string $path, array $body = []);
+    public function delete(string $path, int $id);
 }

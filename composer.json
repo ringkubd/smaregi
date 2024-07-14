@@ -2,7 +2,7 @@
     "name": "anwar/smaregi",
     "type": "library",
     "license": "MIT",
-    "version": "1.0",
+    "version": "1.01",
     "description": "Smaregi app api implementation for laravel",
     "keywords": [
         "anwar",
