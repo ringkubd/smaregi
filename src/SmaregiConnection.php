@@ -90,7 +90,7 @@ class SmaregiConnection implements Connection
         $path = $this->config->get('smaregi.contract_id')."/".$path;
         try {
             $res = $this->httpClient->getAsync($path, [
-                'params' => $params
+                'query' => $params
             ])->wait();
             if ($res->getStatusCode() == 200){
                 return $res->getBody()->getContents();
